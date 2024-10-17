@@ -47,6 +47,7 @@ sudo bash
 ls -l /etc/passwd 
 ```
 发现所有用户对 /etc/passwd 可写
+
 2. 生成一个密码hash
 ```
 openssl passwd -1 -salt mysalt password
